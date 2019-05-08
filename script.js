@@ -16,6 +16,22 @@ function sum() {
 }
 console.log(sum(1, 2, 3, 10));
 
+// random seven numbrs 
+const createSevenRandomNumbers = () => {
+    const random = []
+
+    for (let i = 0; random.length < 7; i++) {
+        
+        let item = Math.floor(Math.random() * 10);
+        if (random.indexOf(item) === -1) {
+            random.push(item);
+        }
+
+    }
+    return random;
+}
+
+console.log(createSevenRandomNumbers());
 
 
 // 8 
@@ -67,30 +83,7 @@ const crazyCalculator = () => {
     // calculating the annual income 
     let totalAnnualIncome = numberArray[0] * 12 + numberArray[2] * 12 + numberArray[1];
 
-    console.log(totalAnnualIncome)
-
-    // another method 
-    let totalMonthlySalary, totalMonthlyOnlineCoursesIncome, annualBonus, totalAnnualIncomeUsingForLoop
-    for (let i = 0; i < numberArray.length; i++) {
-
-        if (numberArray[i] === 5000) {
-            totalMonthlySalary = numberArray[i] * 12;
-        } else if (numberArray[i] === 15000) {
-            totalMonthlyOnlineCoursesIncome = numberArray[i] * 12
-        } else if (numberArray[i] === 10000) {
-            annualBonus = numberArray[i]
-        } else {
-            console.log('Hello Koray and simon')
-        }
-
-        totalAnnualIncomeUsingForLoop = totalMonthlySalary + totalMonthlyOnlineCoursesIncome + annualBonus
-
-    }
-
-    console.log(totalAnnualIncomeUsingForLoop);
-
-
-
+    return totalAnnualIncome;
 }
 
 crazyCalculator()
@@ -105,15 +98,14 @@ crazyCalculator()
 
 const checkEnding = (arg1, arg2) => {
 
-    const pattern = new RegExp(arg2);
-
-    if (arg1.match(pattern)) {
-        return true;
-    } else {
-        return false;
-    }
+    // if (arg1.match(arg2)) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+    return arg1.includes(arg2);
 
 }
 
-console.log(checkEnding('Hari', 'vri'));
+console.log(checkEnding('Hari', 'cri'));
 
