@@ -40,6 +40,63 @@ const removeMiddleItem = (arr, city1, city2, city3) => {
 
 console.log(removeMiddleItem(cities, 'Helsinki', 'Espoo', 'Vantaa'));
 
+// 9 
+// Calculate the total annual income of the person by extracting 
+// the following text. 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 
+//15000 euro online courses per month.'
+const crazyCalculator = () => {
+    const statement = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.';
+    console.log(statement)
+    // spliting the big string to individual string
+    let breakdown = statement.split(' ');
+    console.log(breakdown);
+
+    // change the array item into  type of number 
+    const changetoNumber = breakdown.map((item) => {
+        return parseInt(item)
+
+    })
+    console.log(changetoNumber);
+
+    // filtering the numbers and getting a new array with only numbers
+    const numberArray = changetoNumber.filter((item) => {
+        if (typeof item === 'number')
+            return item
+    })
+
+    // calculating the annual income 
+    let totalAnnualIncome = numberArray[0] * 12 + numberArray[2] * 12 + numberArray[1];
+
+    console.log(totalAnnualIncome)
+
+    // another method 
+    let totalMonthlySalary, totalMonthlyOnlineCoursesIncome, annualBonus, totalAnnualIncomeUsingForLoop
+    for (let i = 0; i < numberArray.length; i++) {
+
+        if (numberArray[i] === 5000) {
+            totalMonthlySalary = numberArray[i] * 12;
+        } else if (numberArray[i] === 15000) {
+            totalMonthlyOnlineCoursesIncome = numberArray[i] * 12
+        } else if (numberArray[i] === 10000) {
+            annualBonus = numberArray[i]
+        } else {
+            console.log('Hello Koray and simon')
+        }
+
+        totalAnnualIncomeUsingForLoop = totalMonthlySalary + totalMonthlyOnlineCoursesIncome + annualBonus
+
+    }
+
+    console.log(totalAnnualIncomeUsingForLoop);
+
+
+
+}
+
+crazyCalculator()
+
+
+
 // 10 
 // Create a function that takes two strings and returns true if the first argument ends with the second argument; 
 // otherewise return false . 
@@ -59,3 +116,4 @@ const checkEnding = (arg1, arg2) => {
 }
 
 console.log(checkEnding('Hari', 'vri'));
+
