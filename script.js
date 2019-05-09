@@ -21,7 +21,7 @@ const createSevenRandomNumbers = () => {
     const random = []
 
     for (let i = 0; random.length < 7; i++) {
-        
+
         let item = Math.floor(Math.random() * 10);
         if (random.indexOf(item) === -1) {
             random.push(item);
@@ -97,14 +97,7 @@ crazyCalculator()
 // Determine if second string matches ending of first string. Return boolean value. Example
 
 const checkEnding = (arg1, arg2) => {
-
-    // if (arg1.match(arg2)) {
-    //     return true;
-    // } else {
-    //     return false;
-    // }
     return arg1.includes(arg2);
-
 }
 
 console.log(checkEnding('Hari', 'cri'));
