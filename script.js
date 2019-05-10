@@ -5,7 +5,7 @@ const sumOfArguments = (...args) => {
     return args.reduce((amount, item) => amount += item);
 }
 
-console.log(sumOfArguments(1, 2, 3));
+// console.log(sumOfArguments(1, 2, 3));
 
 function sum() {
     let sum = 0;
@@ -14,7 +14,7 @@ function sum() {
     }
     return sum;
 }
-console.log(sum(1, 2, 3, 10));
+// console.log(sum(1, 2, 3, 10));
 
 // random seven numbrs 
 const createSevenRandomNumbers = () => {
@@ -31,7 +31,7 @@ const createSevenRandomNumbers = () => {
     return random;
 }
 
-console.log(createSevenRandomNumbers());
+// console.log(createSevenRandomNumbers());
 
 
 // 8 
@@ -54,7 +54,7 @@ const removeMiddleItem = (arr, city1, city2, city3) => {
     return arr;
 }
 
-console.log(removeMiddleItem(cities, 'Helsinki', 'Espoo', 'Vantaa'));
+// console.log(removeMiddleItem(cities, 'Helsinki', 'Espoo', 'Vantaa'));
 
 // 9 
 // Calculate the total annual income of the person by extracting 
@@ -86,7 +86,7 @@ const crazyCalculator = () => {
     return totalAnnualIncome;
 }
 
-crazyCalculator()
+// crazyCalculator()
 
 
 
@@ -100,5 +100,58 @@ const checkEnding = (arg1, arg2) => {
     return arg1.includes(arg2);
 }
 
-console.log(checkEnding('Hari', 'cri'));
+// console.log(checkEnding('Hari', 'cri'));
 
+
+// create a function that checks ages greater than 18
+const agesArray = [45, 33, 9, 13, 22, 100, 19, 18, 17, 77];
+
+function isUserEighteen(arr) {
+    let filteredArray = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 18) {
+            filteredArray.push(arr[i]);
+        }
+    }
+    return filteredArray;
+}
+
+// console.log(isUserEighteen(agesArray));
+
+
+// create a function that check if the array elements are unique 
+
+const isArrayUnique = (arr) => {
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                // console.log('the array is not unique');
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+// console.log(isArrayUnique(agesArray));
+
+// write a function named shuffle. it takes an array parameter and it returns a shuffled array
+
+
+const shuffleAnArray = (arr) => {
+    const shuffledArray = [];
+    // if the shuffled array's length is not equal to the original array 
+    // run the loop and check for duplicate values 
+    for (let i = 0; shuffledArray.length < arr.length; i++) {
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        if (shuffledArray.indexOf(arr[randomIndex]) === -1) {
+            shuffledArray.push(arr[randomIndex]);
+        }
+    }
+    return shuffledArray;
+}
+
+console.log(shuffleAnArray(agesArray));
+
+
+// 
