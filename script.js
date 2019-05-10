@@ -154,4 +154,86 @@ const shuffleAnArray = (arr) => {
 console.log(shuffleAnArray(agesArray));
 
 
-// 
+// bonus question 
+//  
+
+const users = [
+    {
+        name: 'Brook',
+        scores: 75,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 16
+    },
+    {
+        name: 'Alex',
+        scores: 80,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 18
+    },
+    {
+        name: 'David',
+        scores: 75,
+        skills: ['HTM', 'CSS'],
+        age: 22
+    },
+    {
+        name: 'John',
+        scores: 85,
+        skills: ['HTM'],
+        age: 25
+    },
+    {
+        name: 'Sara',
+        scores: 95,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 26
+    },
+    {
+        name: 'Martha',
+        scores: 80,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 18
+    },
+    {
+        name: 'Thomas',
+        scores: 90,
+        skills: ['HTM', 'CSS', 'JS'],
+        age: 20
+    }
+];
+
+const scoresGreaterThan85 = (arr) => {
+    let newArray = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].scores > 85) {
+            newArray.push(arr[i].name)
+        }
+    }
+    return newArray
+
+}
+console.log('Students who has scores > 85: ', scoresGreaterThan85(users));
+
+const addUser = (arr, newUser) => {
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].name === newUser.name) {
+            return 'User already exists';
+        } 
+    }
+    arr.push(newUser);
+    
+    return arr
+}
+
+// const addUser = (arr, newUser) => {
+//     for (const user of arr) {
+//         if (user['name'] === newUser.name) {
+//             return 'A user does exist';
+//         }
+//     }
+//     arr.push(newUser)
+//     return arr;
+// }
+
+console.log(addUser(users, { name: 'John', scores: 88, skills: ['HTML', 'CSS'], age: 200 }));
