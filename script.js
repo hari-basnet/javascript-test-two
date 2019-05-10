@@ -226,6 +226,8 @@ const addUser = (arr, newUser) => {
     return arr
 }
 
+// rubbish 
+
 // const addUser = (arr, newUser) => {
 //     for (const user of arr) {
 //         if (user['name'] === newUser.name) {
