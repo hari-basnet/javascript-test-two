@@ -219,13 +219,43 @@ const addUser = (arr, newUser) => {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].name === newUser.name) {
             return 'User already exists';
-        } 
+        }
     }
     arr.push(newUser);
-    
+
     return arr
 }
 
+const addUserSkill = (arr, userName, skill) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].name === userName) {
+            arr[i].skills.push(skill);
+        } else {
+            console.log('user not found')
+        }
+
+        // arr[i].name === userName ? arr[i].skills.push(skill) : "user doesnot esits"
+    }
+    return arr
+}
+
+const editUser = (arr, name, newUser) => {
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].name === name) {
+            arr[i] = newUser
+        }
+    }
+    return arr
+}
+
+
+const yazan = {
+    name: 'Yazan',
+    age: 16,
+    score: 99,
+    skills: ['Html', 'CSS']
+}
 // rubbish 
 
 // const addUser = (arr, newUser) => {
@@ -238,4 +268,131 @@ const addUser = (arr, newUser) => {
 //     return arr;
 // }
 
+// function test_prime(n)
+// {
+
+//   if (n===1)
+//   {
+//     return false;
+//   }
+//   else if(n === 2)
+//   {
+//     return true;
+//   }else
+//   {
+//     for(var x = 2; x < n; x++)
+//     {
+//       if(n % x === 0)
+//       {
+//         return false;
+//       }
+//     }
+//     return true;  
+//   }
+// }
+
+// console.log(test_prime(37));
+
+
+// //Sets up the counter (1-100 right now)
+// for (var counter = 1; counter <= 100; counter++)
+
+// //Creates a variable called not_prime and automatically sets it to false for each of the counter numbers 
+// {
+//     var not_prime = false;
+
+// //Creates a for loop with a variable called div. The loop increases by one each time until it gets to one less than the counter.
+//     for (var div = 2; div <= (counter - 1); div++) 
+
+// //If the current number divided by the "div"ider number has a remainder of 0, then it's not a prime number and not_prime is set to true.    
+//     {
+//         if (counter % div === 0) 
+//         {not_prime = true;}
+//     }
+
+// //If after going through all the numbers between 2 and one less than the number and none of them were evenly divided (no remainder) not_prime will still be false and the console will print the number.
+//     if (not_prime === false) 
+//     {console.log(counter);}
+// }
+
+const findPrimeNumbers = () => {
+    for (var counter = 0; counter <= 100; counter++) {
+
+        var notPrime = false;
+        for (var i = 2; i <= counter; i++) {
+            if (counter % i === 0 && i !== counter) {
+                notPrime = true;
+            }
+        }
+        if (notPrime === false) {
+            console.log(counter);
+        }
+    }
+}
+// console.log('Prime Numbers: ', findPrimeNumbers())
+
 console.log(addUser(users, { name: 'John', scores: 88, skills: ['HTML', 'CSS'], age: 200 }));
+console.log(addUserSkill(users, "Koray", "Mongo"));
+console.log(editUser(users, "Brook", yazan));
+
+
+const product = [{
+    name: 'Iphone 7',
+    description: 'Cool shit',
+    ratings: [3.5, 2, 5, 4, 3],
+    likes: ['user1', 'user2', 'user3'],
+    disLikes: []
+}, {
+
+    name: 'iPad Pro',
+    description: 'dope',
+    ratings: [3.5, 2, 1, 4, 3, 1],
+    likes: ['user1', 'user3'],
+    disLikes: []
+}
+
+]
+
+
+const updateLikes = (newUser, productName, likeOrDislike) => {
+
+    for (let i = 0; i < product.length; i++) {
+        // if(products[i].likes[i] === newUser)
+        if (product[i].name === productName) {
+            if (product[i].likes[i] !== newUser) {
+                if (likeOrDislike === true) {
+                    product[i].likes.push(newUser);
+                } else if (likeOrDislike === false) {
+                    product[i].disLikes.push(newUser);
+                }
+            }
+        }
+    }
+
+    return product
+}
+
+console.log(updateLikes('Koray', 'iPad Pro', false))
+
+const calculateRatings = (productName) => {
+
+    let rating = 0
+    let totalNumberOfRatings = 0
+    let found = false
+    for (let i = 0; i < product.length; i++) {
+        if (product[i].name === productName) {
+            found = true
+            for (let j = 0; j < product[i].ratings.length; j++) {
+                rating = (rating + product[i].ratings[j])
+            }
+            totalNumberOfRatings = rating / product[i].ratings.length
+        }
+    }
+    if (!found) {
+        return 'Not found'
+    }
+    return totalNumberOfRatings.toFixed(1)
+}
+
+console.log(calculateRatings('iPad Pro'))
+console.log(calculateRatings('Iphone 7'))
