@@ -315,25 +315,69 @@ const yazan = {
 //     {console.log(counter);}
 // }
 
-const findPrimeNumbers = () => {
-    for (var counter = 0; counter <= 100; counter++) {
+// const findPrimeNumbers = () => {
+//     for (var counter = 0; counter <= 100; counter++) {
 
-        var notPrime = false;
-        for (var i = 2; i <= counter; i++) {
-            if (counter % i === 0 && i !== counter) {
-                notPrime = true;
-            }
-        }
-        if (notPrime === false) {
-            console.log(counter);
-        }
-    }
-}
+//         var notPrime = false;
+//         for (var i = 2; i <= counter; i++) {
+//             if (counter % i === 0 && i !== counter) {
+//                 notPrime = true;
+//             }
+//         }
+//         if (notPrime === false) {
+//             console.log(counter);
+//         }
+//     }
+// }
 // console.log('Prime Numbers: ', findPrimeNumbers())
 
-console.log(addUser(users, { name: 'John', scores: 88, skills: ['HTML', 'CSS'], age: 200 }));
-console.log(addUserSkill(users, "Koray", "Mongo"));
-console.log(editUser(users, "Brook", yazan));
+function isPrime(num) {
+    if (num < 1) {
+        return false;
+    } else if (num <= 3) {
+        return true;
+    } else if (num % 2 === 0 || num % 3 === 0) {
+        return false;
+    }
+
+    let i = 5
+    while (i * i <= num) {
+        if (num % i === 0 || num % (i + 2) === 0) {
+            return false
+        }
+        i += 6
+    }
+    return true
+}
+
+function arrayRange(min, max) {
+    return (new Array(max - min + 1).fill(0).map((item, idx) => min + idx));
+}
+console.log(isPrime(arrayRange(0, 10)))
+const findPrimeNumbers = () => {
+
+    let primeNumbers = []
+    for (let i = 1; i < 30; i++) {
+
+        if (i === 2 || i === 3 || i === 5) {
+            primeNumbers.push(i);
+
+        }
+        if (i !== 1 && i % 2 !== 0 && i % 3 !== 0 && i % 5 !== 0) {
+
+            primeNumbers.push(i);
+
+        }
+    }
+
+    return primeNumbers;
+}
+
+console.log(findPrimeNumbers());
+
+// console.log(addUser(users, { name: 'John', scores: 88, skills: ['HTML', 'CSS'], age: 200 }));
+// console.log(addUserSkill(users, "Koray", "Mongo"));
+// console.log(editUser(users, "Brook", yazan));
 
 
 const product = [{
