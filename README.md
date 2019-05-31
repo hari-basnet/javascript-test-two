@@ -1,5 +1,7 @@
 # practicing some javascript problems
 
+Some javascript problem solving.
+
 # Demo
 
 [gh-pages](https://hari-basnet.github.io/javascript-test-two/)
